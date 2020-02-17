@@ -17,10 +17,29 @@ public class GooglePage{
         this.driver = driver;
     }
 
-    public void typeMarca() {
-        WebElement txtSearch = driver.findElement(searchBar);
-        txtSearch.sendKeys("marca");
-        txtSearch.sendKeys(Keys.ENTER);
+    public WebElement getSearchBar() {
+        return driver.findElement(searchBar);
+    }
+
+    public WebElement getSearchBtn() {
+        return driver.findElement(searchBtn);
+    }
+
+    public By getLuckyButton() {
+        return luckyButton;
+    }
+
+    public By getMarcaLink() {
+        return marcaLink;
+    }
+
+    public void typeMarca() throws InterruptedException {
+        getSearchBar().sendKeys("marca",Keys.ENTER);
+        //driver.switchTo().activeElement().sendKeys(Keys.ESCAPE);
+        //getSearchBar().sendKeys(Keys.ENTER);
+        //getSearchBar().sendKeys(Keys.ESCAPE);
+        Thread.sleep(3000);
+        //getSearchBtn().click();
         System.out.println("Buscando Marca");
         driver.findElement(marcaLink).click();
     }
