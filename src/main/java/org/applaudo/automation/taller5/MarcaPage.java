@@ -13,6 +13,7 @@ public class MarcaPage {
     private By motorMenu = By.cssSelector("a[data-menu-active='motor']");
     private By polideportivoMenu = By.cssSelector("a[data-menu-active='default']");
     private By masMenu = By.className("show-more-menu");
+    private By cookiesButton = By.id("didomi-notice-agree-button");
 
     public MarcaPage(WebDriver driver) {
         this.driver = driver;
@@ -38,7 +39,12 @@ public class MarcaPage {
         return driver.findElement(masMenu);
     }
 
+    public WebElement getCookiesButton() {
+        return driver.findElement(cookiesButton);
+    }
+
     public void checkMarca(){
+        getCookiesButton().click();
         SoftAssert sa = new SoftAssert();
         sa.assertEquals(getFulbolMenu().getText(),"Fútbol");
         System.out.println("Expected: Fútbol | Actual: " + getFulbolMenu().getText());

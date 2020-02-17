@@ -12,6 +12,7 @@ public class GooglePage{
     private By searchBtn = By.xpath("//div[@class='FPdoLc tfB0Bf']//input[@name='btnK']");
     private By luckyButton = By.xpath("//div[@class='FPdoLc tfB0Bf']//input[@name='btnI']");
     private By marcaLink = By.cssSelector("#rso > div:nth-child(1) > div > div > div > div > div.r > a > div > cite");
+    private By sportLink = By.cssSelector("#rso > div:nth-child(1) > div > div > div > div.r > a > div > cite");
 
     public GooglePage(WebDriver driver) {
         this.driver = driver;
@@ -42,5 +43,12 @@ public class GooglePage{
         //getSearchBtn().click();
         System.out.println("Buscando Marca");
         driver.findElement(marcaLink).click();
+    }
+
+    public void typeSport(){
+        getSearchBar().sendKeys("sport",Keys.ENTER);
+        System.out.println("Buscando Sport");
+        driver.findElement(marcaLink).click();
+
     }
 }
