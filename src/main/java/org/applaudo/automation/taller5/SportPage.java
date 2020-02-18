@@ -87,32 +87,32 @@ public class SportPage {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         getUsaMenu().click();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         driver.navigate().back();
-        js.executeScript("scroll(0,-1000)");
+        js.executeScript("scroll(0,-100)");
         getVenezuelaMenu().click();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         driver.navigate().back();
-        js.executeScript("scroll(0,-1000)");
+        js.executeScript("scroll(0,-100)");
         getColombiaMenu().click();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         driver.navigate().back();
-        js.executeScript("scroll(0,-1000)");
+        js.executeScript("scroll(0,-100)");
         getChileMenu().click();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         driver.navigate().back();
-        js.executeScript("scroll(0,-1000)");
+        js.executeScript("scroll(0,-100)");
         getMexicoMenu().click();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         driver.navigate().back();
-        js.executeScript("scroll(0,-1000)");
+        js.executeScript("scroll(0,-100)");
         getArgentinaMenu().click();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         driver.navigate().back();
-        js.executeScript("scroll(0,-1000)");
+        js.executeScript("scroll(0,-100)");
         getUkMenu().click();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         driver.navigate().back();
-        js.executeScript("scroll(0,-1000)");
+        js.executeScript("scroll(0,-100)");
     }
 }
