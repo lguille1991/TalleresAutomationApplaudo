@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Taller 5">
-    <test name="Something">
+    <test name="MARCA TESTS">
         <classes>
             <class name="org.applaudo.automation.SearchMarcaTest"></class>
+        </classes>
+    </test>
+    <test name="SPORT TESTS">
+        <classes>
+            <class name="org.applaudo.automation.SearchSportTest"></class>
         </classes>
     </test>
 </suite>

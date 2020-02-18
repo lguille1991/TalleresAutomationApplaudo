@@ -36,11 +36,7 @@ public class GooglePage{
 
     public void typeMarca() throws InterruptedException {
         getSearchBar().sendKeys("marca",Keys.ENTER);
-        //driver.switchTo().activeElement().sendKeys(Keys.ESCAPE);
-        //getSearchBar().sendKeys(Keys.ENTER);
-        //getSearchBar().sendKeys(Keys.ESCAPE);
         Thread.sleep(3000);
-        //getSearchBtn().click();
         System.out.println("Buscando Marca");
         driver.findElement(marcaLink).click();
     }
@@ -49,6 +45,12 @@ public class GooglePage{
         getSearchBar().sendKeys("sport",Keys.ENTER);
         System.out.println("Buscando Sport");
         driver.findElement(marcaLink).click();
-
     }
+
+    public void typeSearchKeyword(){
+        getSearchBar().sendKeys("sport",Keys.ENTER);
+        System.out.println("Buscando Sport");
+        driver.findElement(marcaLink).click();
+    }
+
 }

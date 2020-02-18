@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 
+import java.util.List;
+
 public class MarcaPage {
     WebDriver driver;
 
@@ -14,6 +16,7 @@ public class MarcaPage {
     private By polideportivoMenu = By.cssSelector("a[data-menu-active='default']");
     private By masMenu = By.className("show-more-menu");
     private By cookiesButton = By.id("didomi-notice-agree-button");
+    private By menuRibbon = By.cssSelector("body > header > div.main-nav-container > div > nav > ul > li");
 
     public MarcaPage(WebDriver driver) {
         this.driver = driver;
@@ -43,9 +46,14 @@ public class MarcaPage {
         return driver.findElement(cookiesButton);
     }
 
+    public List<WebElement> getMenuRibbon() {
+        return driver.findElements(menuRibbon);
+    }
+
     public void checkMarca(){
-        getCookiesButton().click();
         SoftAssert sa = new SoftAssert();
+        sa.assertEquals(getMenuRibbon().size(),6);
+        System.out.println("Expected: 6 | Actual: " + getMenuRibbon().size());
         sa.assertEquals(getFulbolMenu().getText(),"Fútbol");
         System.out.println("Expected: Fútbol | Actual: " + getFulbolMenu().getText());
         sa.assertEquals(getBaloncestoMenu().getText(),"Baloncesto");
@@ -58,7 +66,7 @@ public class MarcaPage {
         System.out.println("Expected: Más | Actual: " + getMasMenu().getText());
         sa.assertAll();
 
-        getFulbolMenu().click();
+        /*getFulbolMenu().click();
         driver.navigate().back();
         getBaloncestoMenu().click();
         driver.navigate().back();
@@ -66,7 +74,7 @@ public class MarcaPage {
         driver.navigate().back();
         getPolideportivoMenu().click();
         driver.navigate().back();
-        getMasMenu().click();
+        getMasMenu().click();*/
 
     }
 }

@@ -1,9 +1,10 @@
 package org.applaudo.automation.taller5;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
+
+import java.util.List;
 
 public class SportPage {
     WebDriver driver;
@@ -19,6 +20,8 @@ public class SportPage {
     private By ukMenu = By.cssSelector("a[href='https://www.sport.es/en/']");
     private By cookiesButton = By.id("didomi-notice-agree-button");
     private By sportHome = By.cssSelector("body > div.header.new-header.es > div.edition-lang > div");
+    private By menuRibbon = By.cssSelector("body > div.header.new-header.es > div.edition-lang > div > div.editions >" +
+            " ul > li");
 
     public SportPage(WebDriver driver){
         this.driver = driver;
@@ -64,9 +67,14 @@ public class SportPage {
         return driver.findElement(sportHome);
     }
 
+    public List<WebElement> getMenuRibbon() {
+        return driver.findElements(menuRibbon);
+    }
+
     public void checkSport() throws InterruptedException {
-        getCookiesButton().click();
         SoftAssert sa = new SoftAssert();
+        sa.assertEquals(getMenuRibbon().size(),9);
+        System.out.println("Expected: 9 | Actual: " + getMenuRibbon().size());
         sa.assertEquals(getEspañaMenu().getText(),"España");
         System.out.println("Expected: España | Actual: " + getEspañaMenu().getText());
         sa.assertEquals(getUsaMenu().getText(),"Estados Unidos");
@@ -84,35 +92,33 @@ public class SportPage {
         sa.assertEquals(getUkMenu().getText(),"Reino unido");
         System.out.println("Expected: Reino unido | Actual: " + getUkMenu().getText());
         sa.assertAll();
+    }
 
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+    public void clickUsa(){
         getUsaMenu().click();
-        Thread.sleep(2000);
-        driver.navigate().back();
-        js.executeScript("scroll(0,-100)");
+    }
+
+    public void clickVenezuela(){
         getVenezuelaMenu().click();
-        Thread.sleep(2000);
-        driver.navigate().back();
-        js.executeScript("scroll(0,-100)");
+    }
+
+    public void clickColombia(){
         getColombiaMenu().click();
-        Thread.sleep(2000);
-        driver.navigate().back();
-        js.executeScript("scroll(0,-100)");
+    }
+
+    public void clickChile(){
         getChileMenu().click();
-        Thread.sleep(2000);
-        driver.navigate().back();
-        js.executeScript("scroll(0,-100)");
+    }
+
+    public void clickMexico(){
         getMexicoMenu().click();
-        Thread.sleep(2000);
-        driver.navigate().back();
-        js.executeScript("scroll(0,-100)");
+    }
+
+    public void clickArgentina(){
         getArgentinaMenu().click();
-        Thread.sleep(2000);
-        driver.navigate().back();
-        js.executeScript("scroll(0,-100)");
+    }
+
+    public void clickUk(){
         getUkMenu().click();
-        Thread.sleep(2000);
-        driver.navigate().back();
-        js.executeScript("scroll(0,-100)");
     }
 }
